@@ -5,7 +5,6 @@ from farm.models import Income, Expense, Production, AnimalBatch
 from django.db.models import Sum
 from django.utils import timezone
 from django.http import HttpResponse
-from .tasks import farm_report_pdf
 
 @csrf_exempt
 @method_required('get')
