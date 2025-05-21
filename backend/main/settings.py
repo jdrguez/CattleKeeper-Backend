@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Seguridad
 SECRET_KEY = config('SECRET_KEY', default='insecure-dev-key')
-DEBUG = config('DEBUG', cast=bool, default=False)
+DEBUG = False
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(',')
 
 # Aplicaciones
