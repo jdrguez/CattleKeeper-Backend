@@ -88,7 +88,7 @@ DATABASES = {
 redis_url = config('REDIS_URL', default='redis://localhost:6379/0')
 
 host = config('REDISHOST')
-port = config('REDISPASSWORD')
+port = config('REDIS_PASSWORD')
 db = config('REDISUSER')
 password = config('REDISPORT')
 
