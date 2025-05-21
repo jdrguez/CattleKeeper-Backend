@@ -12,8 +12,11 @@ RUN apt-get update && apt-get install -y \
     libcairo2 \
     libjpeg-dev \
     zlib1g-dev \
+    libgobject-2.0-0 \
+    libglib2.0-0 \
     curl \
     && rm -rf /var/lib/apt/lists/*
+
 
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
