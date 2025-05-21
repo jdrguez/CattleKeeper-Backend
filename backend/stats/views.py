@@ -70,7 +70,7 @@ def net_income_per_batch(request):
 
     return JsonResponse({'batches': data})
 
-
+""" 
 @csrf_exempt
 @method_required('get')
 @authenticated_user
@@ -85,4 +85,7 @@ def get_report(request):
     return JsonResponse({
         'status': 'success',
         'message': 'Generated Report'
-    })
+    }) """
+
+def get_report(request):
+    pass
