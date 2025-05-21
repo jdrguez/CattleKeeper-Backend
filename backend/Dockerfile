@@ -14,7 +14,11 @@ RUN apt-get update && apt-get install -y \
     zlib1g-dev \
     libgobject-2.0-0 \
     libglib2.0-0 \
-    curl \
+    libpango-1.0-0 \
+    libpangocairo-1.0-0 \
+    libcairo2-dev \
+    pkg-config \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 
