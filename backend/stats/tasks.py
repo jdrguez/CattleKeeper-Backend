@@ -66,8 +66,8 @@ def farm_report_pdf(user, year = None, month = None):
     })
 
     pdf_buffer = BytesIO()
-    html = HTML(string=html_string)
-    html.write_pdf(target=pdf_buffer)
+    #html = HTML(string=html_string)
+    #html.write_pdf(target=pdf_buffer)
     pdf_buffer.seek(0)
 
     email = EmailMessage(
