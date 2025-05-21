@@ -86,11 +86,11 @@ DATABASES = {
 
 # Configuración de Redis para django-rq
 redis_url = config('REDIS_URL', default='redis://localhost:6379/0')
-parsed_url = urlparse(redis_url)
-host = parsed_url.hostname
-port = parsed_url.port
-db = int(parsed_url.path.replace('/', ''))
-password = parsed_url.password
+
+host = config('REDISHOST')
+port = config('REDISPASSWORD')
+db = config('REDISUSER')
+password = config('REDISPORT')
 
 RQ_QUEUES = {
     'default': {
