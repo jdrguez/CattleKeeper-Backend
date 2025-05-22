@@ -22,4 +22,4 @@ ENV PATH="/root/bin:${PATH}"
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn main.wsgi:application --bind 0.0.0.0:8080"]
+CMD ["bash", "-c", "just create-su && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn main.wsgi:application --bind 0.0.0.0:8080"]
