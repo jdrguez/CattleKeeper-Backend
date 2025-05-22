@@ -78,11 +78,16 @@ TEMPLATES = [
 
 # Base de datos desde DATABASE_URL
 DATABASES = {
-    'default': dj_database_url.config(
-        default=config('DATABASE_URL', default='postgres://postgres:postgres@localhost:5432/postgres'),
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('POSTGRES_DB'),
+        'USER': config('POSTGRES_USER'),
+        'PASSWORD': config('POSTGRES_PASSWORD'),
+        'HOST': config('PGHOST'),
+        'PORT': config('PGPORT'),
+    }
 }
+
 
 # Configuración de Redis para django-rq
 redis_url = config('REDIS_URL', default='redis://localhost:6379/0')
