@@ -40,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 # CORS
@@ -59,6 +60,7 @@ CORS_EXPOSE_HEADERS = ['Authorization']
 ROOT_URLCONF = 'main.urls'
 WSGI_APPLICATION = 'main.wsgi.application'
 
+POSTGRES_LOCALLY = True
 # Templates
 TEMPLATES = [
     {
@@ -78,14 +80,10 @@ TEMPLATES = [
 
 # Base de datos desde DATABASE_URL
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('POSTGRES_DB'),
-        'USER': config('POSTGRES_USER'),
-        'PASSWORD': config('POSTGRES_PASSWORD'),
-        'HOST': config('PGHOST'),
-        'PORT': config('PGPORT'),
-    }
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL', default='postgres://postgres:postgres@localhost:5432/postgres'),
+        conn_max_age=600
+    )
 }
 
 
