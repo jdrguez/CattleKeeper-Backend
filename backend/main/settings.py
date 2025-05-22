@@ -81,7 +81,7 @@ TEMPLATES = [
 # Base de datos desde DATABASE_URL
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL', default='postgres://postgres:postgres@localhost:5432/postgres'),
+        default=config('DATABASE_PUBLIC_URL', default='postgres://postgres:postgres@localhost:5432/postgres'),
         conn_max_age=600
     )
 }

@@ -16,10 +16,8 @@ RUN pip install --upgrade pip && pip install -r requirements.txt
 
 COPY . .
 
-RUN mkdir -p /root/bin
-RUN curl --proto '=https' --tlsv1.2 -sSf https://just.systems/install.sh | bash -s -- --to /root/bin
-ENV PATH="/root/bin:${PATH}"
+RUN python manage.py collectstatic --noinput
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "just create-su && python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput && gunicorn main.wsgi:application --bind 0.0.0.0:8080"]
+CMD ["bash", "-c", "python manage.py runserver 0.0.0.0:8000"]
